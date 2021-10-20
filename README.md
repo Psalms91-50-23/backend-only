@@ -67,7 +67,7 @@ http://localhost:3000/api/v1/todos/3   will delete todo with id 3
 
 will return 
 
-Task id number 3  has been deleted
+Task id number 3 has been deleted
 
 
 http://localhost:3000/api/v1/todos  post route
@@ -97,17 +97,17 @@ eg
 http://localhost:3000/api/v1/todos/3  patch route 
 
 
-eg
+initial data of id 3
+
 {
     "id": 3,
     "from": "anonymous",
     "to": "mom",
-    "task": "remember to buy me boots for rugby and also a rugby ball",
+    "task": "remember to buy me boots for rugby",
     "hint": "complainer",
     "completed": false
 
 }
-
 
 object id 3 will now be 
 
@@ -119,5 +119,5 @@ object id 3 will now be
     "hint": "complainer",
     "completed": false
   }
-  
+
 ```
