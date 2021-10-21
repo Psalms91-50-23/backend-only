@@ -67,7 +67,7 @@ http://localhost:3000/api/v1/todos/3   will delete todo with id 3
 
 will return 
 
-Task id number 3 has been deleted
+Todo id number 3 has been deleted
 
 
 http://localhost:3000/api/v1/todos  post route
@@ -109,7 +109,7 @@ initial data of id 3
 
 }
 
-object id 3 will now be 
+Todo id 3 will now be 
 
 {
     "id": 3,
