@@ -34,10 +34,7 @@ function deleteTodoTask(id){
 
 function updateTodoTask(id,todo)
 {
-    const updateID = id
-    const beforeUpdate = getTodoTaskById(updateID)
-    var tempArray = []
-    tempArray.push(todo)
+    
     return db('todos')
     .where('id', id)
     .update(todo)
@@ -50,6 +47,7 @@ function updateTodoTask(id,todo)
     // })
 }
 
+
 module.exports = {
 
     getAllTodoTask,
@@ -57,4 +55,5 @@ module.exports = {
     addTodoTask,
     deleteTodoTask,
     updateTodoTask
+    
 }

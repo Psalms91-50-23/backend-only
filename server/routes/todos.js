@@ -6,13 +6,13 @@ const router = express.Router()
 router.get('/', (req,res) => {
 
     db.getAllTodoTask()
-    .then(tasks => {
+    .then(todos => {
 
-        tasks.map(task => {
-            task.completed = Boolean(task.completed)
+        todos.map(todo => {
+            todo.completed = Boolean(todo.completed)
         })
      
-        res.json(tasks)
+        res.json(todos)
         return null
     }).catch(err => {
 
@@ -23,12 +23,12 @@ router.get('/', (req,res) => {
 
 router.get('/:id', (req,res) => {
 
-    const postId = req.params.id
-    db.getTodoTaskById(postId)
-    .then(task => {
+    const todoId = req.params.id
+    db.getTodoTaskById(todoId)
+    .then(todo => {
         
-        task.completed = Boolean(task.completed)
-        res.json(task)
+        todo.completed = Boolean(todo.completed)
+        res.json(todo)
 
     }).catch(err => {
 
@@ -39,17 +39,17 @@ router.get('/:id', (req,res) => {
 
 router.post('/', (req,res)=> {
 
-    const newPost = req.body
+    const newTodo = req.body
  
-    if(newPost.from === "")
+    if(!newTodo.from)
     {
-        newPost.from = "anonymous"
+        newTodo.from = "anonymous"
     }
     
-    db.addTodoTask(newPost)
-    .then(post => {
+    db.addTodoTask(newTodo)
+    .then(todo => {
 
-        res.json(post)
+        res.json(todo)
 
     }).catch(err => {
 
@@ -77,10 +77,10 @@ router.delete('/:id', (req,res) => {
 
 router.patch('/:id', (req,res) => {
 
-    const taskID = req.params.id
-    const taskToUpdate = req.body
+    const todoId = req.params.id
+    const todoToUpdate = req.body
 
-    db.updateTodoTask(taskID, taskToUpdate)
+    db.updateTodoTask(todoId, todoToUpdate)
     .then(()  => {
 
         res.json({updateCompleted: true})
