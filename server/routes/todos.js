@@ -60,11 +60,11 @@ router.post('/', (req,res)=> {
 
 router.delete('/:id', (req,res) => {
 
-    const taskID = req.params.id
-    db.deleteTodoTask(taskID)
+    const todoId = req.params.id
+    db.deleteTodoTask(todoId)
     .then(() => {
 
-        res.json(`Task id number ${taskID} has been deleted`)
+        res.json(`Todo id number ${todoId} has been deleted`)
 
     }).catch(err => {
 
