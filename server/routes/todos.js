@@ -12,7 +12,7 @@ router.get('/', (req,res) => {
             todo.completed = Boolean(todo.completed)
         })
      
-        res.json(todos)
+        res.status(200).json(todos)
         return null
     }).catch(err => {
 
@@ -28,7 +28,7 @@ router.get('/:id', (req,res) => {
     .then(todo => {
         
         todo.completed = Boolean(todo.completed)
-        res.json(todo)
+        res.status(200).json(todo)
 
     }).catch(err => {
 
@@ -49,7 +49,7 @@ router.post('/', (req,res)=> {
     db.addTodoTask(newTodo)
     .then(todo => {
 
-        res.json(todo)
+        res.status(200).json(todo)
 
     }).catch(err => {
 
@@ -64,7 +64,7 @@ router.delete('/:id', (req,res) => {
     db.deleteTodoTask(todoId)
     .then(() => {
 
-        res.json(`Todo id number ${todoId} has been deleted`)
+        res.status(200).json(`Todo id number ${todoId} has been deleted`)
 
     }).catch(err => {
 
@@ -82,8 +82,8 @@ router.patch('/:id', (req,res) => {
 
     db.updateTodoTask(todoId, todoToUpdate)
     .then(()  => {
-
-        res.json({updateCompleted: true})
+        
+        res.status(200).json({updateCompleted: true})
 
     }).catch(err => {
         res.status(404).json({error: err.message})
